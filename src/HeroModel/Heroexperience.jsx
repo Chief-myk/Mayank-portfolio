@@ -121,7 +121,7 @@ const Heroexperience = () => {
                 }}
             >
                 <HeroLight/>
-                <Particles count={isMobile ? 50 : isTablet ? 100 : 200}/>
+                <Particles/>
                 <OrbitControls
                     enablePan={false}
                     enableZoom={!isTablet}
@@ -135,7 +135,7 @@ const Heroexperience = () => {
                     position={[0, -3.5, 0]}
                     rotation={[0, -Math.PI/4, 0]}
                 >
-                    <Room />
+                    {/* <Room /> */}
                 </group>
             </Canvas>
          </Suspense> 

@@ -17,7 +17,7 @@ const Heroexperience = () => {
     useEffect(() => {
         const handleContextLost = (e) => {
             e.preventDefault();
-            console.warn('WebGL context lost, attempting to restore...');
+            console.log('WebGL context lost, attempting to restore...');
             setContextLost(true);
         };
 
@@ -57,10 +57,17 @@ const Heroexperience = () => {
     // Force reload of model if there was an error
     useEffect(() => {
         if (hasError) {
-            // Clear cache for GLTF models
-            Object.keys(useGLTF.cache).forEach(key => {
-                useGLTF.remove(key);
-            });
+            // Clear cache for GLTF models - safely check if cache exists
+            try {
+                const cache = useGLTF.cache;
+                if (cache && typeof cache === 'object') {
+                    Object.keys(cache).forEach(key => {
+                        useGLTF.remove(key);
+                    });
+                }
+            } catch (err) {
+                console.error('Error clearing GLTF cache:', err);
+            }
             
             // Wait a bit and reset the error state
             const timer = setTimeout(() => {
@@ -91,15 +98,27 @@ const Heroexperience = () => {
                     gl.powerPreference = 'high-performance';
                     gl.antialias = true;
                     
-                    // Lower precision if on mobile for better performance
+                    // Use proper constants for encoding (THREE.sRGBEncoding is deprecated)
                     if (isMobile) {
-                        gl.outputEncoding = THREE.sRGBEncoding;
+                        gl.outputColorSpace = THREE.SRGBColorSpace;
                         gl.toneMapping = THREE.ACESFilmicToneMapping;
                         gl.toneMappingExposure = 1;
                     }
+                    
+                    // Add error handling for context loss
+                    gl.getContext().canvas.addEventListener('webglcontextlost', (e) => {
+                        e.preventDefault();
+                        setContextLost(true);
+                    });
                 }}
                 dpr={Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2)} // Lower DPR for mobile
-                performance={{ min: 0.5 }} // Performance optimization
+                gl={{ 
+                    powerPreference: 'high-performance',
+                    alpha: true,
+                    antialias: true,
+                    stencil: false,
+                    depth: true
+                }}
             >
                 <HeroLight/>
                 <Particles count={isMobile ? 50 : isTablet ? 100 : 200}/>

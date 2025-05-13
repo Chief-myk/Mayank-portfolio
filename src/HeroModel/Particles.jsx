@@ -11,7 +11,7 @@ export const Particles = ({ count = 200 }) => {
         position: [
           (Math.random() - 0.5) * 30,
           Math.random() * 10 + 5, // higher starting point
-          (Math.random() - 0.5) * 80,
+          (Math.random() - 0.5) * 150,
         ],
         speed: 0.005 + Math.random() * 0.001,
       });

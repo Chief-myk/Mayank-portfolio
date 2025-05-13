@@ -1,96 +1,143 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Button } from "../assets/Button"
+import { Button } from "../assets/Button";
 import Heroexperience from '../HeroModel/Heroexperience';
-import { words } from "../assets/index"
+import { words } from "../assets/index";
 import { useGSAP } from '@gsap/react';
-import { AnimatedCounter } from "../assets/AnimatedCounter"
+import { AnimatedCounter } from "../assets/AnimatedCounter";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Hero = () => {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const wordContainersRef = useRef([]);
+    const textRef = useRef(null);
 
-    useGSAP(()=>{
-        gsap.fromTo("h1",{
-y:50,
-opacity:0
-        },{
-            y:0,
-            opacity:1,
-            stagger:0.5,
-            duration:2,
-            ease:"power2.inout"
-        })
-    })
-    
+    useEffect(() => {
+        const paragraph = textRef.current;
+        if (!paragraph) return;
+
+        const text = paragraph.innerText;
+        paragraph.innerText = '';
+
+        // Split text into words and spaces
+        const wordsAndSpaces = text.split(/(\s+)/); // Split but keep spaces
+
+        wordsAndSpaces.forEach((segment) => {
+            if (segment.trim() === '' && segment !== '') {
+                // It's a space - add it directly
+                paragraph.appendChild(document.createTextNode(segment));
+            } else {
+                // It's a word - animate each letter
+                segment.split('').forEach((letter) => {
+                    const span = document.createElement('span');
+                    span.innerText = letter;
+                    span.style.opacity = '0';
+                    span.style.display = 'inline-block';
+                    span.style.whiteSpace = 'pre'; // Preserve whitespace
+                    paragraph.appendChild(span);
+                });
+            }
+        });
+
+        // Animate all letter spans
+        const letters = paragraph.querySelectorAll('span');
+        gsap.to(letters, {
+            opacity: 1,
+            duration: 0.05,
+            stagger: 0.05,
+            ease: "power1.inOut"
+        });
+    }, []);
+
+    // Rest of your component remains the same...
+    useGSAP(() => {
+        gsap.fromTo("h1", {
+            y: 50,
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
+            stagger: 0.5,
+            duration: 2,
+            ease: "power2.inOut"
+        });
+
+        gsap.to(".button", {
+            duration: 1,
+            x: 100,
+            rotation: 360,
+        });
+    }, []);
+
     // Animation logic
     useEffect(() => {
         const wordContainers = wordContainersRef.current;
-        
+
         // Reset refs if needed
         if (wordContainers.length !== words.length) {
-            wordContainersRef.current = Array(words.length).fill().map((_, i) => 
+            wordContainersRef.current = Array(words.length).fill().map((_, i) =>
                 wordContainersRef.current[i] || null
             );
-            return; // Skip this render cycle
+            return;
         }
-        
+
         // Hide all words initially
-        gsap.set(wordContainers, { 
-            y: 50, 
+        gsap.set(wordContainers, {
+            y: 50,
             opacity: 0
         });
-        
+
         // Show the current word
-        gsap.to(wordContainers[currentWordIndex], {
-            y: 0,
-            opacity: 1,
-            duration: 0.3,
-            ease: "power2.out"
-        });
-        
-        // Set up interval for word rotation
-        const interval = setInterval(() => {
-            // Animate current word out
+        if (wordContainers[currentWordIndex]) {
             gsap.to(wordContainers[currentWordIndex], {
-                y: -50,
-                opacity: 0,
-                duration: 0.3,
-                ease: "power2.in"
-            });
-            
-            // Update to next word
-            const nextIndex = (currentWordIndex + 1) % words.length;
-            setCurrentWordIndex(nextIndex);
-            
-            // Prepare next word (position it below view)
-            gsap.set(wordContainers[nextIndex], {
-                y: 50,
-                opacity: 0
-            });
-            
-            // Animate next word in
-            gsap.to(wordContainers[nextIndex], {
                 y: 0,
                 opacity: 1,
                 duration: 0.3,
-                delay: 0.6, // Slight delay for smoother transition
                 ease: "power2.out"
             });
-        }, 2000); // Change word every 3 seconds
-        
+        }
+
+        // Set up interval for word rotation
+        const interval = setInterval(() => {
+            if (wordContainers[currentWordIndex]) {
+                gsap.to(wordContainers[currentWordIndex], {
+                    y: -50,
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: "power2.in"
+                });
+            }
+
+            const nextIndex = (currentWordIndex + 1) % words.length;
+            setCurrentWordIndex(nextIndex);
+
+            if (wordContainers[nextIndex]) {
+                gsap.set(wordContainers[nextIndex], {
+                    y: 50,
+                    opacity: 0
+                });
+
+                gsap.to(wordContainers[nextIndex], {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.3,
+                    delay: 0.6,
+                    ease: "power2.out"
+                });
+            }
+        }, 2000);
+
         return () => clearInterval(interval);
     }, [currentWordIndex]);
 
     return (
         <section id="hero" className="relative min-h-screen">
             <div className='absolute inset-0 w-full h-full'>
-                <img 
-                    src="/images/bg.png" 
-                    alt="background" 
+                <img
+                    src="/images/bg.png"
+                    alt="background"
                     className="w-full h-full object-contain"
                 />
             </div>
@@ -108,7 +155,7 @@ opacity:0
 
                                     <div className="relative h-12 md:h-16 ml-5 overflow-hidden w-50">
                                         {words.map((word, index) => (
-                                            <div 
+                                            <div
                                                 key={`word-${index}`}
                                                 ref={el => wordContainersRef.current[index] = el}
                                                 className="absolute flex items-center gap-3"
@@ -129,19 +176,19 @@ opacity:0
                                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
                                     into Real Projects
                                 </h1>
-                                
+
                                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
                                     that Deliver Results
                                 </h1>
 
-                                <p className="text-white/80 text-center lg:text-left text-base sm:text-lg md:text-xl mt-8 max-w-2xl leading-relaxed">
-                                    Hi, I'm Mayank, a full-stack Web And App developer based in India with a passion for crafting exceptional digital experiences through code.
+                                <p ref={textRef} className="text-white/80 text-center lg:text-left text-base sm:text-lg md:text-xl mt-8 max-w-2xl leading-relaxed">
+                                    Hi, I'm Mayank a full-stack Web And App developer based in India with a passion for crafting exceptional digital experiences through code.
                                 </p>
 
                                 <div className="mt-12 flex justify-center lg:justify-start">
                                     <Button
                                         id="hero-work-button"
-                                        className="w-40 sm:w-48 md:w-52 h-12 md:h-14 text-lg"
+                                        className="button w-40 sm:w-48 md:w-52 h-12 md:h-14 text-lg"
                                         text="See My Work"
                                     />
                                 </div>
@@ -155,7 +202,7 @@ opacity:0
                     </div>
                 </div>
             </div>
-            <AnimatedCounter/>
+            <AnimatedCounter />
         </section>
     );
 };

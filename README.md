@@ -140,3 +140,8 @@ detailed explanations, cool features, and exercises to boost your skills. Give i
 <a href="https://beta.jsmastery.pro/" target="_blank">
   <img src="public/images/readme-bottom.png" alt="Project Banner">
 </a>
+
+
+{/* <div className="w-full lg:w-1/2 h-[650px] sm:h-[900px] md:h-[600px] relative">
+                <Ghost/>
+            </div> */}

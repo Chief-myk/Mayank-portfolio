@@ -65,9 +65,10 @@ const Hero = () => {
         });
 
         gsap.to(".button", {
-            duration: 1,
+            duration: 0.5,
             x: 100,
             rotation: 360,
+            ease: "power2.out", 
         });
     }, []);
 

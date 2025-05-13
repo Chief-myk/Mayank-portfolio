@@ -17,7 +17,7 @@ const Navbar = () => {
             {isMobile && <div className="h-20 md:h-0"></div>}
             
             <motion.header 
-                className={`${isMobile ? 'fixed' : 'sticky'} top-0 z-50 w-full xl:w-[70vw] mx-auto py-4 px-2 md:px-2 lg:px-8`}
+                className={`${isMobile ? 'fixed' : 'sticky'} top-0 z-50 w-full xl:w-[70vw] mx-auto py-0 xl:py-4 px-2 md:px-2 lg:px-8`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}

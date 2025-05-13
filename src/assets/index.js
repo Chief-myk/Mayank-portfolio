@@ -1,11 +1,11 @@
 const navLinks = [
   {
-    name: "Work",
-    link: "#work",
+    name: "About",
+    link: "#about",
   },
   {
-    name: "Experience",
-    link: "#experience",
+    name: "Projects",
+    link: "#project",
   },
   {
     name: "Skills",
@@ -35,28 +35,19 @@ const counterItems = [
   { value: 95, suffix: "%", label: "Learning Commitment" },
 ];
 
-
 const logoIconsList = [
   {
-    imgPath: "/images/logos/company-logo-1.png",
+    imgPath: "/images/logos/AR-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/c-Photoroom.png",
   },
   {
     imgPath: "/images/logos/company-logo-2.png",
   },
+
   {
-    imgPath: "/images/logos/company-logo-3.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-4.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-5.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-6.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-7.png",
+    imgPath: "/images/logos/EX-Photoroom.png",
   },
   {
     imgPath: "/images/logos/company-logo-8.png",
@@ -65,12 +56,49 @@ const logoIconsList = [
     imgPath: "/images/logos/company-logo-9.png",
   },
   {
-    imgPath: "/images/logos/company-logo-10.png",
+    imgPath: "/images/logos/GI-Photoroom.png",
   },
+
+  {
+    imgPath: "/images/logos/j-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/m-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/company-logo-4.png",
+  },
+  {
+    imgPath: "/images/logos/n-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/MON-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/NE-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/RE-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/SQ-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/t-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/UE-Photoroom.png",
+  },
+  {
+    imgPath: "/images/logos/UN-Photoroom.png",
+  },
+
   {
     imgPath: "/images/logos/company-logo-11.png",
   },
 ];
+
+
 
 const abilities = [
   {
@@ -148,7 +176,8 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    review:
+      "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
     title: "Frontend Developer",
@@ -160,7 +189,8 @@ const expCards = [
     ],
   },
   {
-    review: "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+    review:
+      "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
     imgPath: "/images/exp2.png",
     logoPath: "/images/logo2.png",
     title: "Full Stack Developer",
@@ -172,7 +202,8 @@ const expCards = [
     ],
   },
   {
-    review: "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
+    review:
+      "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
     imgPath: "/images/exp3.png",
     logoPath: "/images/logo3.png",
     title: "React Native Developer",

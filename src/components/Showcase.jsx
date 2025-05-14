@@ -20,7 +20,11 @@ const Showcase = () => {
             tags: ["AI", "Voice Control", "Gesture Recognition"],
             accentColor: "blue"
         },
-        {
+       
+    ]
+
+    const secondaryProjects = [
+         {
             id: 2,
             title: "Your Body is the Controller – Play, Train, Repeat",
             description: "A fitness game that uses motion tracking to turn your workouts into an interactive gaming experience.",
@@ -28,10 +32,6 @@ const Showcase = () => {
             tags: ["Motion Tracking", "Fitness", "Gaming"],
             accentColor: "purple"
         },
-    ]
-
-    const secondaryProjects = [
-        
         {
             id: 3,
             title: "Explore the Neon City – A 3D Cyberpunk Journey",
@@ -40,14 +40,14 @@ const Showcase = () => {
             tags: ["3D", "Interactive", "Storytelling"],
             accentColor: "pink"
         },
-        {
-            id: 4,
-            title: "Exploring the Cosmos – Interactive 3D Space Experience",
-            description: "A comprehensive space exploration project using React Three.js, featuring interactive 3D models of the solar system, planets, stars, black holes, and deep space phenomena.",
-            image: "/images/cc.avif",
-            tags: ["3D Space", "Three.js", "Cosmology", "Interactive"],
-            accentColor: "darkblue"
-        },
+        // {
+        //     id: 4,
+        //     title: "Exploring the Cosmos – Interactive 3D Space Experience",
+        //     description: "A comprehensive space exploration project using React Three.js, featuring interactive 3D models of the solar system, planets, stars, black holes, and deep space phenomena.",
+        //     image: "/images/cc.avif",
+        //     tags: ["3D Space", "Three.js", "Cosmology", "Interactive"],
+        //     accentColor: "darkblue"
+        // },
 
     ]
 

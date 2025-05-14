@@ -168,7 +168,7 @@ const ProjectCard = React.forwardRef(({ project, isMain }, ref) => {
         <motion.div
             ref={ref}
             whileHover={{ y: -5 }}
-            className={`p-4 sm:p-5 md:p-8 h-max rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:shadow-lg transition-all duration-300 h flex flex-col ${colorVariants[project.accentColor] || 'border-blue-400'
+            className={`p-4 sm:p-5 md:p-8 h-[100%] rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:shadow-lg transition-all duration-300 flex flex-col ${colorVariants[project.accentColor] || 'border-blue-400'
                 }`}
         >
             <div className='w-full overflow-hidden rounded-xl mb-4 md:mb-6'>

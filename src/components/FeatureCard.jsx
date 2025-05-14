@@ -3,6 +3,11 @@ import { abilities } from "../assets/index"
 
 const FeatureCard = () => {
     return (
+        <>
+        <div className="flex justify-center w-full my-8 overflow-hidden">
+            <div className="w-1/3 h-0.5 bg-gray-700 rounded-full transition-all duration-700 ease-in-out hover:w-1/2 hover:bg-gray-500 transform hover:scale-y-150 cursor-pointer animate-pulse"></div>
+        </div>
+        
         <div className='w-full px-4 sm:px-8 md:px-16 py-8'>
             <div className='mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl'>
                 {abilities.map(({ imgPath, title, desc }) => (
@@ -23,6 +28,7 @@ const FeatureCard = () => {
                 ))}
             </div>
         </div>
+        </>
     )
 }
 

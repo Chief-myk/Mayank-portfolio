@@ -54,30 +54,6 @@ const Heroexperience = () => {
         return () => window.removeEventListener('error', handleError);
     }, []);
 
-    // Force reload of model if there was an error
-    useEffect(() => {
-        if (hasError) {
-            // Clear cache for GLTF models - safely check if cache exists
-            try {
-                const cache = useGLTF.cache;
-                if (cache && typeof cache === 'object') {
-                    Object.keys(cache).forEach(key => {
-                        useGLTF.remove(key);
-                    });
-                }
-            } catch (err) {
-                console.error('Error clearing GLTF cache:', err);
-            }
-            
-            // Wait a bit and reset the error state
-            const timer = setTimeout(() => {
-                setHasError(false);
-            }, 2000);
-            
-            return () => clearTimeout(timer);
-        }
-    }, [hasError]);
-
     if (contextLost) {
         return <div className='mt-4'>Restoring 3D view...</div>;
     }

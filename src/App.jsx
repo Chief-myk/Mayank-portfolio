@@ -8,6 +8,7 @@ import Exp from './components/Exp'
 import TechStack from './components/TechStack'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       <TechStack/>
       <Testimonials/>
       <Contact/>
+      <Footer/>
     </main>
   )
 }

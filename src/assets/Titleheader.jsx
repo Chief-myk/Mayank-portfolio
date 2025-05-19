@@ -49,7 +49,7 @@ const Titleheader = ({ title, sub }) => {
   return (
     <div ref={ref}>
       <motion.div 
-        className='flex flex-col items-center gap-5 mt-12 xl:mt-20'
+        className='flex flex-col items-center gap-5 mt-10'
         variants={containerVariants}
         initial="hidden"
         animate={controls}

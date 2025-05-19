@@ -262,19 +262,19 @@ const testimonials = [
 const socialImgs = [
   {
     name: "insta",
-    imgPath: "/images/insta.png",
+    svgPath: "/images/svgs/instagram-svgrepo-com.svg",
   },
   {
     name: "fb",
-    imgPath: "/images/fb.png",
+    svgPath: "/images/svgs/facebook-svgrepo-com.svg",
   },
   {
     name: "x",
-    imgPath: "/images/x.png",
+    svgPath: "/images/svgs/linkedin-svgrepo-com.svg",
   },
   {
     name: "linkedin",
-    imgPath: "/images/linkedin.png",
+    svgPath: "/images/svgs/new-twitter-stroke-rounded.svg",
   },
 ];
 

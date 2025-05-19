@@ -262,18 +262,22 @@ const testimonials = [
 const socialImgs = [
   {
     name: "insta",
+    url:"https://www.instagram.com/mayankmittal.1306/",
     svgPath: "/images/svgs/instagram-svgrepo-com.svg",
   },
   {
     name: "fb",
+    url:"https://www.facebook.com/mayank.mittal.1069020",
     svgPath: "/images/svgs/facebook-svgrepo-com.svg",
   },
   {
     name: "x",
+    url:"https://x.com/MayankMittal06",
     svgPath: "/images/svgs/linkedin-svgrepo-com.svg",
   },
   {
     name: "linkedin",
+    url:"https://www.linkedin.com/in/mayankmittal1311/",
     svgPath: "/images/svgs/new-twitter-stroke-rounded.svg",
   },
 ];

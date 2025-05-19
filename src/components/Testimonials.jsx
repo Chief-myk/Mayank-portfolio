@@ -164,7 +164,7 @@ const Testimonials = () => {
         <div 
             id="testimonials" 
             ref={testimonialsRef}
-            className=" flex flex-col items-center justify-center mx-auto px-4 sm:px-6 lg:px-8 mb-[100px]"
+            className=" flex flex-col items-center justify-center mx-auto px-4 sm:px-6 lg:px-8 "
         >
             <div ref={titleRef} className="w-full h-full mx-auto md:px-10 px-5 title-header">
                 <Titleheader
@@ -173,7 +173,7 @@ const Testimonials = () => {
                 />
             </div>
             
-            <div className="grid mt-[-50px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 w-full max-w-7xl">
+            <div className="grid mt-[30px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8 w-full max-w-7xl">
                 {testimonials && testimonials.map((testimonial, index) => (
                     <div
                         key={index}

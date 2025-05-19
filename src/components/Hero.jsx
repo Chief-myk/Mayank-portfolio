@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from "../assets/Button";
-import Heroexperience from '../HeroModel/Heroexperience';
+import Heroexperience from '../Models/HeroModel/Heroexperience';
 import { words } from "../assets/index";
 import { useGSAP } from '@gsap/react';
 import { AnimatedCounter } from "../assets/AnimatedCounter";

@@ -4,7 +4,9 @@ import LogoShowCase from './components/LogoShowCase'
 import Navbar from './components/Navbar'
 import Showcase from './components/Showcase'
 import About from './components/About'
-// import Exp from './components/Exp'
+import Exp from './components/Exp'
+import TechStack from './components/TechStack'
+import Testimonials from './components/Testimonials'
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
       <Showcase/>
       <FeatureCard/>
       {/* <Exp/> */}
+      <TechStack/>
+      <Testimonials/>
     </main>
   )
 }

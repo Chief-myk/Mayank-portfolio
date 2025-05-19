@@ -120,14 +120,6 @@ const abilities = [
 
 const techStackImgs = [
   {
-    name: "React Developer",
-    imgPath: "/images/logos/react.png",
-  },
-  {
-    name: "Python Developer",
-    imgPath: "/images/logos/python.svg",
-  },
-  {
     name: "Backend Developer",
     imgPath: "/images/logos/node.png",
   },
@@ -139,40 +131,49 @@ const techStackImgs = [
     name: "Project Manager",
     imgPath: "/images/logos/git.svg",
   },
+  {
+    name: "Java Developer",
+    imgPath: "/images/logos/java-Photoroom.png",
+  },
+  {
+    name: "SQL Developer",
+    imgPath: "/images/logos/sql.png",
+  },
 ];
 
 const techStackIcons = [
   {
     name: "React Developer",
     modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
+    scale: [25, 25, 25],
     rotation: [0, 0, 0],
+    animation: "", // Add animation name if available
+    reduceBrightness: true,
+    lighting: {
+      ambient: 0.2,
+      directional: 0.4,
+      environment: 0.3
+    }
   },
   {
     name: "Python Developer",
     modelPath: "/models/python-transformed.glb",
     scale: 0.8,
     rotation: [0, 0, 0],
+    animation: "", // Add animation name if available
+    reduceBrightness: false,
   },
   {
-    name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
-  },
-  {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
+    name: "Docker Developer",
+    modelPath: "/models/moby_dock_docker_whale.glb",
+    scale: 0.8,
     rotation: [0, 0, 0],
-  },
-  {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
+    animation: "", // Add animation name if available
+    reduceBrightness: false,
   },
 ];
+
+
 
 const expCards = [
   {
@@ -232,48 +233,34 @@ const expLogos = [
 ];
 
 const testimonials = [
+ {
+  name: "Yashpal Chopra",
+  mentions: "@yashpalchopra",
+  review:
+    "Mayank is a highly talented and dedicated developer. He created a personalized full stack portfolio for me, capturing my professional journey with impressive design and functionality. His attention to detail and commitment to excellence are truly commendable.",
+  imgPath: "/images/YsSir.jpg",
+},
   {
-    name: "Esther Howard",
-    mentions: "@estherhoward",
-    review:
-      "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
-    imgPath: "/images/client1.png",
-  },
+  name: "Pawan Mehra",
+  mentions: "@pawanmehra",
+  review:
+    "Mayank crafted a stunning portfolio that perfectly captures my passion for graphic design, gaming, and robotics. His creative approach and seamless integration of themes truly set this project apart. Highly recommended for anyone looking to showcase their work with style.",
+  imgPath: "/images/pawan.jpg",
+},
+ {
+  name: "Siddhi Sharma",
+  mentions: "@siddhisharma",
+  review:
+    "Mayank is an exceptional teammate with a remarkable talent for full stack development. Collaborating with him on our JARVIS AI assistant project during the hackathon was an incredible experience. His innovative thinking, technical skills, and problem-solving mindset truly brought our vision to life.",
+  imgPath: "/images/siddhi.jpg",
+},
   {
-    name: "Wade Warren",
-    mentions: "@wadewarren",
-    review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
-    imgPath: "/images/client3.png",
-  },
-  {
-    name: "Guy Hawkins",
-    mentions: "@guyhawkins",
-    review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    imgPath: "/images/client2.png",
-  },
-  {
-    name: "Marvin McKinney",
-    mentions: "@marvinmckinney",
-    review:
-      "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
-    imgPath: "/images/client5.png",
-  },
-  {
-    name: "Floyd Miles",
-    mentions: "@floydmiles",
-    review:
-      "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
-    imgPath: "/images/client4.png",
-  },
-  {
-    name: "Albert Flores",
-    mentions: "@albertflores",
-    review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
-    imgPath: "/images/client6.png",
-  },
+  name: "Bhavik Anand",
+  mentions: "@bhavikanand",
+  review:
+    "Working with Mayank on the Fit-Game project was an inspiring experience. His innovative ideas and strong technical skills made the project truly stand out. He has a rare ability to blend creativity with precision, making him a fantastic teammate.",
+  imgPath: "/images/bhavik.jpeg",
+},
 ];
 
 const socialImgs = [
@@ -295,6 +282,25 @@ const socialImgs = [
   },
 ];
 
+ const skills = [
+        { name: "Python", level: 90 },
+        { name: "JavaScript/Node.js", level: 85 },
+        { name: "React/React Native", level: 88 },
+        { name: "Java", level: 80 },
+        { name: "SQL", level: 85 },
+        { name: "MongoDB", level: 75 },
+        { name: "Docker", level: 70 },
+        { name: "Git & GitHub", level: 90 },
+    ];
+
+    const certificates = [
+        "AI and ML by Microsoft",
+        "Software Engineering by LinkedIn",
+        "App Development Using React Native by Coding Ninja",
+        "Web Development by CodeWithHarry",
+        "DevOps Engineering by Google"
+    ];
+
 export {
   words,
   abilities,
@@ -307,4 +313,8 @@ export {
   techStackIcons,
   techStackImgs,
   navLinks,
+  skills,
+  certificates
 };
+
+

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import {skills ,certificates} from "../assets/index"
 
 const About = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -50,25 +51,6 @@ const About = () => {
             }
         }
     };
-
-    const skills = [
-        { name: "Python", level: 90 },
-        { name: "JavaScript/Node.js", level: 85 },
-        { name: "React/React Native", level: 88 },
-        { name: "Java", level: 80 },
-        { name: "SQL", level: 85 },
-        { name: "MongoDB", level: 75 },
-        { name: "Docker", level: 70 },
-        { name: "Git & GitHub", level: 90 },
-    ];
-
-    const certificates = [
-        "AI and ML by Microsoft",
-        "Software Engineering by LinkedIn",
-        "App Development Using React Native by Coding Ninja",
-        "Web Development by CodeWithHarry",
-        "DevOps Engineering by Google"
-    ];
 
     return (
         <section id="about" className="scroll-mt-20 relative overflow-hidden">

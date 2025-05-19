@@ -80,12 +80,12 @@ const Navbar = () => {
                     
                     {/* Contact Button (desktop) */}
                     <motion.a 
-                        href="#Contact" 
+                        href="#contact" 
                         className="hidden md:block"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <button className="bg-white hover:bg-gray-200 rounded-lg text-black px-4 py-2 font-medium transition-colors cursor-pointer shadow-md hover:shadow-lg transition-shadow">
+                        <button className="bg-white hover:bg-gray-200 rounded-lg text-black px-4 py-2 font-medium transition-colors cursor-pointer shadow-md hover:shadow-lg">
                             Contact Me
                         </button>
                     </motion.a>
@@ -126,11 +126,11 @@ const Navbar = () => {
                                     transition={{ duration: 0.2, delay: 0.1 }}
                                 >
                                     <a 
-                                        href="#Contact" 
+                                        href="#contact" 
                                         className="block"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        <button className="w-full bg-white hover:bg-gray-200 rounded-lg text-black px-4 py-2 font-medium transition-colors shadow-md hover:shadow-lg transition-shadow">
+                                        <button className="w-full bg-white hover:bg-gray-200 rounded-lg text-black px-4 py-2 font-medium shadow-md hover:shadow-lg transition-shadow">
                                             Contact Me
                                         </button>
                                     </a>

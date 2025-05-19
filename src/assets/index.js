@@ -87,12 +87,8 @@ const logoIconsList = [
     imgPath: "/images/logos/t-Photoroom.png",
   },
   {
-    imgPath: "/images/logos/UE-Photoroom.png",
-  },
-  {
     imgPath: "/images/logos/UN-Photoroom.png",
   },
-
   {
     imgPath: "/images/logos/company-logo-11.png",
   },

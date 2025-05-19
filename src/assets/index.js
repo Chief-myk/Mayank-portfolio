@@ -273,12 +273,17 @@ const socialImgs = [
   {
     name: "x",
     url:"https://x.com/MayankMittal06",
-    svgPath: "/images/svgs/linkedin-svgrepo-com.svg",
+    svgPath: "/images/svgs/new-twitter-stroke-rounded.svg"
   },
   {
     name: "linkedin",
     url:"https://www.linkedin.com/in/mayankmittal1311/",
-    svgPath: "/images/svgs/new-twitter-stroke-rounded.svg",
+    svgPath: "/images/svgs/linkedin-svgrepo-com.svg",
+  },
+  {
+    name: "github",
+    url:"https://github.com/Chief-myk/",
+    svgPath: "/images/svgs/github-svgrepo-com.svg",
   },
 ];
 

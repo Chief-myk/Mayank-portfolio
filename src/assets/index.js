@@ -32,7 +32,7 @@ const counterItems = [
   { value: 10, suffix: "+", label: "Innovative Projects" },
   { value: 15, suffix: "+", label: "Skills" },
   { value: 3, suffix: "+", label: "AI-Powered Systems" },
-  { value: 95, suffix: "%", label: "Learning Commitment" },
+  { value: 100, suffix: "%", label: "Learning Commitment" },
 ];
 
 const logoIconsList = [
@@ -299,11 +299,11 @@ const socialImgs = [
     ];
 
     const certificates = [
-        "AI and ML by Microsoft",
+        "Machine Learning using Python by Infosys",
         "Software Engineering by LinkedIn",
-        "App Development Using React Native by Coding Ninja",
+        "App Development By SimpleLearning",
         "Web Development by CodeWithHarry",
-        "DevOps Engineering by Google"
+        "JAVA Learning By Infosys",
     ];
 
 export {

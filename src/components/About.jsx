@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import {skills ,certificates} from "../assets/index"
+import { skills, certificates } from "../assets/index"
 
 const About = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -21,11 +21,16 @@ const About = () => {
 
     const handleClick = () => {
         // window.location.href = "https://www.linkedin.com/in/mayankmittal1311/";
-         window.open("https://www.linkedin.com/in/mayankmittal1311/", "_blank");
+        window.open("https://www.linkedin.com/in/mayankmittal1311/", "_blank");
     };
 
     const handleClick2 = () => {
-        // window.location.href = "/path-to-your-cv.pdf";
+        const link = document.createElement('a')
+        link.href = "/images/Mayank Mittal Resume.pdf"
+        link.download = "Mayank Mittal Resume.pdf"
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
         console.log("Download CV clicked");
     };
 
@@ -114,14 +119,15 @@ const About = () => {
                                             <span className="px-3 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full border border-blue-500/30">Full Stack Dev</span>
                                             <span className="px-3 py-1 bg-purple-900/30 text-purple-300 text-xs rounded-full border border-purple-500/30">App Developer</span>
                                             <span className="px-3 py-1 bg-orange-900/30 text-orange-300 text-xs rounded-full border border-orange-500/30">Cloud & DevOps</span>
-                                            <span className="px-3 py-1 bg-green-900/30 text-green-300 text-xs rounded-full border border-green-500/30">Space Enthusiast</span>
+                                            <span className="px-3 py-1 bg-green-900/30 text-green-300 text-xs rounded-full border border-green-500/30">Iot Enthusiast</span>
+                                            <span className="px-3 py-1 bg-green-900/30 text-yellow-300 text-xs rounded-full border border-yellow-500/30">AI & ML Leaner</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Skills */}
-                                    {/* <div>
+                            {/* <div>
                                         <h3 className="text-xl font-bold text-white mb-3 flex items-center">
                                             <span className="w-1 h-6 bg-purple-500 mr-2"></span>
                                             Skills
@@ -183,7 +189,7 @@ const About = () => {
                                         </div>
                                     </div>
 
-                                    
+
 
                                     {/* Certificates */}
                                     <div>
@@ -220,7 +226,7 @@ const About = () => {
                                             </li>
                                             <li className="flex items-start">
                                                 <span className="text-yellow-500 mr-2">🏆</span>
-                                                <span className="text-gray-300">1st Position in 2 National Hackathons</span>
+                                                <span className="text-gray-300">Participated in National Hackathons</span>
                                             </li>
                                             {/* <li className="flex items-start">
                                                 <span className="text-yellow-500 mr-2">🏆</span>

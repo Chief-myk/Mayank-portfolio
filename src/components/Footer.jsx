@@ -1,5 +1,14 @@
 import React from 'react';
-import {socialImgs} from "../assets/index"
+import { FaFacebook, FaGithub, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
+
+const socialLinks = [
+  { icon: <FaFacebook />, url: 'https://facebook.com/mayank.mittal.1069020', name: 'Facebook' },
+  { icon: <FaGithub />, url: 'https://github.com/Chief-myk/', name: 'GitHub' },
+  { icon: <FaLinkedin />, url: 'https://linkedin.com/in/mayankmittal1311/', name: 'LinkedIn' },
+  { icon: <FaInstagram />, url: 'https://instagram.com/mayankmittal.1306/', name: 'Instagram' },
+  { icon: <FaTwitter />, url: 'https://x.com/MayankMittal06', name: 'Twitter' }
+];
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,41 +19,41 @@ const Footer = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4'>
           {/* Brand/Name Section */}
           <div className='flex justify-center md:justify-start items-center'>
-            <a 
-              href="/" 
+            <a
+              href="/"
               className='text-2xl font-medium hover:text-white transition-colors duration-300'
               aria-label="Home"
             >
               Mayank Mittal
             </a>
           </div>
-          
+
           {/* Social Links Section */}
-          <div className='flex items-center justify-center gap-4'>
-            {socialImgs.map((social) => (
+          <div className="flex items-center justify-center gap-4">
+            {socialLinks.map((social, index) => (
               <a
+                key={index}
                 href={social.url}
-                className='
-                  flex justify-center items-center 
-                  rounded-xl w-10 h-10 md:w-12 md:h-12 
-                  cursor-pointer transition-all 
-                  duration-300 hover:bg-black-50 hover:scale-110
-                  focus:outline-none focus:ring-2 focus:ring-white-50
-                '
-                target='_blank'
-                rel='noopener noreferrer'
-                key={social.name}
-                aria-label={social.alt}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="
+          flex justify-center items-center 
+          rounded-full w-8 h-8 md:w-10 md:h-10 
+          cursor-pointer transition-all 
+          duration-300 bg-gray-200 
+          hover:bg-blue-500 hover:scale-110 
+          focus:outline-none focus:ring-2 focus:ring-blue-300
+        "
               >
-                <img 
-                  src={social.svgPath} 
-                  alt={social.name} 
-                  className='w-5 h-5 md:w-6 md:h-6 bg-white rounded-sm'
-                />
+                <div className="text-gray-700 hover:text-white text-xl md:text-2xl">
+                  {social.icon}
+                </div>
               </a>
             ))}
           </div>
-          
+
+
           {/* Copyright Section */}
           <div className='flex flex-col justify-center'>
             <p className='text-sm text-center md:text-right text-white'>

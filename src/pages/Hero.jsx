@@ -162,7 +162,7 @@ const Hero = () => {
             </div>
 
             {/* Galaxy Background - Desktop only - FIXED: Always render but conditionally display */}
-            <div className={`fixed top-0 left-0 w-full h-full ${galaxyReady ? 'block' : 'hidden'} md:block`} style={{ zIndex: 0 }}>
+            <div className={`fixed top-0 left-0 w-full h-full hidden md:block`} style={{ zIndex: 0 }}>
                 <Galaxy {...galaxyConfig} />
             </div>
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { skills, certificates } from "../assets/index"
-
+import { FaCode, FaRobot, FaBook, FaUsers } from 'react-icons/fa';
 const About = () => {
     const [isVisible, setIsVisible] = useState(false);
 
@@ -58,7 +58,7 @@ const About = () => {
     };
 
     return (
-        <section id="about" className="scroll-mt-20 relative overflow-hidden">
+        <section id="about" className="scroll-mt-20 bg-black relative overflow-hidden">
             {/* Animated background elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                 <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
@@ -111,9 +111,7 @@ const About = () => {
                                             Mayank Mittal
                                         </h2>
                                         <p className="text-gray-300 leading-relaxed">
-                                            Passionate Computer Science Engineering student at GGSIPU with expertise in cutting-edge technologies.
-                                            I've developed innovative projects including AI systems, 3D simulations, gesture-controlled devices,
-                                            and Real-Life Application Models.
+                                            🚀 "I’m a passionate Computer Science Engineering student at GGSIPU, fueled by innovation and a deep love for technology. I build intelligent systems and next-gen solutions — from AI-powered assistants and 3D interactive simulations to gesture-controlled devices and real-world automation models. My goal is to turn futuristic ideas into scalable, high-impact digital experiences that redefine how people interact with technology."
                                         </p>
                                         <div className="flex flex-wrap gap-2 pt-2">
                                             <span className="px-3 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full border border-blue-500/30">Full Stack Dev</span>
@@ -162,10 +160,31 @@ const About = () => {
                                     Personal Vision
                                 </h3>
                                 <p className="text-gray-300 leading-relaxed">
-                                    My ambition is to become a billionaire by 23 by building groundbreaking technology companies that push human potential.
-                                    I aim to lead advancements in military technology, creating impactful solutions for both offensive and defensive operations.
+                                    💫 "My vision is to build revolutionary technology companies that redefine human potential and shape the future of innovation. I aspire to lead advancements in intelligent defense and next-generation technologies — creating high-impact solutions that strengthen global security, empower people, and inspire a safer, smarter world."
                                 </p>
                             </motion.div>
+                            <motion.div
+                                className="bg-gradient-to-br from-violet-800/20 to-violet-950 backdrop-blur-lg rounded-2xl p-6 border border-violet-500/20 shadow-lg"
+                                variants={itemVariants}
+                            >
+                                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                                    <span className="w-1 h-6 bg-violet-500 mr-2"></span>
+                                    Why Me?
+                                </h3>
+                                <p className="text-gray-300 leading-relaxed">
+                                    🔹 Fast learner and highly adaptable – I can hit the ground running in any environment.
+                                </p>
+                                <p className="text-gray-300 leading-relaxed">
+                                    🔹 Tech-savvy with hands-on experience in Full Stack Development, AI/ML, and emerging technologies.
+                                </p>
+                                <p className="text-gray-300 leading-relaxed">
+                                    🔹 Open to relocation and flexible on compensation to join a forward-thinking team immediately.
+                                </p>
+                                <p className="text-gray-300 leading-relaxed">
+                                    🔹 Driven, innovative, and results-focused – ready to contribute from day one.
+                                </p>
+                            </motion.div>
+
                         </motion.div>
 
                         {/* Right Column - Skills & Details */}
@@ -175,7 +194,7 @@ const About = () => {
                         >
                             {/* Education & Skills Card */}
                             <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/10">
-                                <div className="space-y-6">
+                                <div className="space-y-10">
                                     {/* Education */}
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-3 flex items-center">
@@ -185,11 +204,47 @@ const About = () => {
                                         <div className="pl-4 border-l-2 border-blue-500/30">
                                             <h4 className="text-lg font-semibold text-blue-300">BTech in Computer Science</h4>
                                             <p className="text-gray-400">Guru Gobind Singh Indraprastha University (GGSIPU)</p>
-                                            <p className="text-sm text-gray-500 mt-1">Currently in 2nd Semester</p>
+                                            <p className="text-sm text-gray-500 mt-1">Currently in 2nd Year</p>
                                         </div>
                                     </div>
 
-
+                                    {/* Hobbies */}
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-3 flex items-center">
+                                            <span className="w-1 h-6 bg-purple-500 mr-2"></span>
+                                            Hobbies & Interests
+                                        </h3>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                            <motion.div
+                                                className="flex items-center p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
+                                                whileHover={{ x: 5 }}
+                                            >
+                                                <FaCode className="w-4 h-4 text-purple-500 mr-2" />
+                                                <span className="text-gray-300 text-sm">Building futuristic AI & tech prototypes</span>
+                                            </motion.div>
+                                            <motion.div
+                                                className="flex items-center p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
+                                                whileHover={{ x: 5 }}
+                                            >
+                                                <FaRobot className="w-4 h-4 text-purple-500 mr-2" />
+                                                <span className="text-gray-300 text-sm">Exploring emerging tech (AI, DevOps, IoT, Cloud)</span>
+                                            </motion.div>
+                                            <motion.div
+                                                className="flex items-center p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
+                                                whileHover={{ x: 5 }}
+                                            >
+                                                <FaBook className="w-4 h-4 text-purple-500 mr-2" />
+                                                <span className="text-gray-300 text-sm">Competitive coding & hackathon participation</span>
+                                            </motion.div>
+                                            <motion.div
+                                                className="flex items-center p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
+                                                whileHover={{ x: 5 }}
+                                            >
+                                                <FaUsers className="w-4 h-4 text-purple-500 mr-2" />
+                                                <span className="text-gray-300 text-sm">Tech blogging and mentoring young developers</span>
+                                            </motion.div>
+                                        </div>
+                                    </div>
 
                                     {/* Certificates */}
                                     <div>
@@ -219,19 +274,33 @@ const About = () => {
                                             <span className="w-1 h-6 bg-yellow-500 mr-2"></span>
                                             Achievements & Awards
                                         </h3>
-                                        <ul className="space-y-2">
+                                        <ul className="space-y-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
                                             <li className="flex items-start">
                                                 <span className="text-yellow-500 mr-2">🏆</span>
-                                                <span className="text-gray-300">Satisfied 10+ clients with custom solutions</span>
+                                                <span className="text-gray-300">🚀 3× Hackathon Finalist</span>
                                             </li>
                                             <li className="flex items-start">
                                                 <span className="text-yellow-500 mr-2">🏆</span>
-                                                <span className="text-gray-300">Participated in National Hackathons</span>
+                                                <span className="text-gray-300">💻 Open-Source Contributor</span>
                                             </li>
-                                            {/* <li className="flex items-start">
+                                            <li className="flex items-start">
                                                 <span className="text-yellow-500 mr-2">🏆</span>
-                                                <span className="text-gray-300">Published research on military tech applications</span>
-                                            </li> */}
+                                                <span className="text-gray-300">
+
+                                                    🌍 Recognized Innovator</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="text-yellow-500 mr-2">🏆</span>
+                                                <span className="text-gray-300">
+
+                                                    🥇 Top 5 Scholar (All-Time Academic Excellence)</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="text-yellow-500 mr-2">🏆</span>
+                                                <span className="text-gray-300">
+
+                                                    🧠 Developed 10+ Real-World Tech Projects</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

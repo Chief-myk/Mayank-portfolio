@@ -16,7 +16,7 @@ const LogoShowCase = () => {
     }
 
     return (
-        <div className='relative'>
+        <div className='relative bg-black'>
             {/* Gradient fade edges */}
             <div className='absolute inset-y-0 left-0 w-32 z-10 pointer-events-none 
                 bg-gradient-to-r from-black to-transparent' />

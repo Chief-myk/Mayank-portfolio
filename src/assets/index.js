@@ -30,7 +30,7 @@ const words = [
 
 const counterItems = [
   { value: 10, suffix: "+", label: "Innovative Projects" },
-  { value: 15, suffix: "+", label: "Skills" },
+  { value: 20, suffix: "+", label: "Skills" },
   { value: 3, suffix: "+", label: "AI-Powered Systems" },
   { value: 100, suffix: "%", label: "Learning Commitment" },
 ];
@@ -299,11 +299,12 @@ const socialImgs = [
     ];
 
     const certificates = [
-        "Machine Learning using Python by Infosys",
-        "Software Engineering by LinkedIn",
-        "App Development By SimpleLearning",
-        "Web Development by CodeWithHarry",
-        "JAVA Learning By Infosys",
+        "Python for Machine Learning – Infosys",
+        "Software Devlopment Life Cycle - Microsoft & LinkedIn",
+        "App Development - SimpleLearning",
+        "Full Stack Web Development (MERN Stack) – Coursera",
+        "Data Structures & Algorithms in Java – Infosys",
+        "DevOps Essentials (Docker, Kubernetes, CI/CD) – Udemy"
     ];
 
 export {

@@ -14,7 +14,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='py-5 bg-black-200 w-full'>
+    <footer className='relative bg-black py-5 bg-black-200 w-full'>
       <div className='container mx-auto px-5 md:px-10 xl:px-20'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4'>
           {/* Brand/Name Section */}

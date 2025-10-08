@@ -164,7 +164,7 @@ const Testimonials = () => {
         <div 
             id="testimonials" 
             ref={testimonialsRef}
-            className=" flex flex-col items-center justify-center mx-auto px-4 sm:px-6 lg:px-8 "
+            className="relative pb-24 flex flex-col bg-black items-center justify-center mx-auto px-4 sm:px-6 lg:px-8 "
         >
             <div ref={titleRef} className="w-full h-full mx-auto md:px-10 px-5 title-header">
                 <Titleheader

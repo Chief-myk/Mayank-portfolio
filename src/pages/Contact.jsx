@@ -84,7 +84,7 @@ const Contact = () => {
     }
 
     return (
-        <div id='contact' className='flex item-centre justify-center mt-14 px-5 py-10 md:py-16 md:px-8'>
+        <div id='contact' className='relative flex bg-black item-centre justify-center px-5 py-10 md:py-16 md:px-8'>
             <div className='w-full h-full mf:px-10 px-5'>
                 <Titleheader title={"Get in touch with me"} sub={"📩 Contact Information"} />
                 <div className='mt-16 grid grid-cols-12'>

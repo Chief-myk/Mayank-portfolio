@@ -9,6 +9,7 @@ import { AnimatedCounter } from "../assets/AnimatedCounter";
 import Heroexperience from '../Models/HeroModel/Heroexperience';
 import Galaxy from '../components/Galaxy';
 import ProfileCard from '../components/ProfileCard';
+import FuturisticHero from '../components/Bg';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -150,7 +151,9 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="hero" className="relative min-h-screen overflow-hidden bg-black">
+        // <section id="hero" className="relative min-h-screen overflow-hidden bg-black">
+        <section id="hero" className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#050505] to-[#0a0a0a] text-white">
+
             {/* Mobile background */}
             <div className="absolute block md:hidden inset-0 w-full h-full">
                 <img
@@ -161,14 +164,19 @@ const Hero = () => {
                 />
             </div>
 
-            {/* Galaxy Background - Desktop only - FIXED: Always render but conditionally display */}
             <div className={`fixed top-0 left-0 w-full h-full hidden md:block`} style={{ zIndex: 0 }}>
-                <Galaxy {...galaxyConfig} />
+                <FuturisticHero />
             </div>
+
+            {/* Galaxy Background - Desktop only - FIXED: Always render but conditionally display */}
+
+            {/* <div className={`fixed top-0 left-0 w-full h-full hidden md:block`} style={{ zIndex: 0 }}>
+                <Galaxy {...galaxyConfig} />
+            </div> */}
 
             {/* Content */}
             <div className="relative z-10 mx-auto px-4 md:px-6 lg:px-8 flex justify-center items-center min-h-screen">
-                <div className="flex flex-col mt-5 md:-mt-10 lg:flex-row items-center justify-between w-full max-w-7xl gap-8 lg:gap-12">
+                <div className="flex flex-col mt-5 md:-mt-20 lg:flex-row items-center justify-between w-full max-w-7xl gap-8 lg:gap-12">
 
                     {/* Left Content */}
                     <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">

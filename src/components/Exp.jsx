@@ -333,7 +333,7 @@ const Exp = () => {
         <section 
             id="experience" 
             ref={sectionRef}
-            className='w-full px-4 sm:px-6 py-2 relative overflow-hidden'
+            className='w-full px-4 sm:px-6 bg-black py-2 relative overflow-hidden'
         >
             {/* Enhanced animated background elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

@@ -58,7 +58,7 @@ const About = () => {
     };
 
     return (
-        <section id="about" className="scroll-mt-20 bg-black relative overflow-hidden">
+        <section id="about" className="scroll-mt-20 bg-black  relative overflow-hidden">
             {/* Animated background elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                 <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>

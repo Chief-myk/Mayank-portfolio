@@ -239,7 +239,7 @@ const FuturisticHero = () => {
       1000
     );
     cameraRef.current = camera;
-    camera.position.z = 5;
+    camera.position.z = 3;
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,

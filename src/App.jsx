@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { PacmanLoader } from "react-spinners";
-
-// Import all components
 import Navbar from './components/Navbar';
 import Hero from './pages/Hero';
 import About from './pages/About';
@@ -13,9 +11,10 @@ import TechStack from './pages/TechStack2';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
-// import Exp from './components/Exp';
+import Exp from './components/Exp';
+import LoaderGreet from './components/LoaderGreet';
 
-// Full Screen Loading Component
+
 const FullScreenLoader = () => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black">
     <div className="flex flex-col items-center gap-6">
@@ -54,11 +53,10 @@ const App = () => {
       });
     }, 150);
 
-    // Main loading timeout
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
       clearInterval(progressInterval);
-    }, 3000); // 2 seconds loading time
+    }, 3000); 
 
     // Cleanup
     return () => {
@@ -69,19 +67,48 @@ const App = () => {
 
   // Show loader while loading
   if (isLoading) {
-    return <FullScreenLoader />;
+    return <LoaderGreet/>;
+    // return <FullScreenLoader />;
   }
 
-  // Show main content after loading
+//   useEffect(() => {
+//   // Show loader until full website loads
+//   const handlePageLoad = () => {
+//     setIsLoading(false);
+//   };
+
+//   // If page already loaded (fast reload)
+//   if (document.readyState === "complete") {
+//     setIsLoading(false);
+//   } else {
+//     window.addEventListener("load", handlePageLoad);
+//   }
+
+//   // Simulated progress bar same as yours (kept untouched)
+//   const progressInterval = setInterval(() => {
+//     setLoadingProgress(prev => {
+//       if (prev >= 100) {
+//         clearInterval(progressInterval);
+//         return 100;
+//       }
+//       return prev + 10;
+//     });
+//   }, 150);
+
+//   // Cleanup
+//   return () => {
+//     window.removeEventListener("load", handlePageLoad);
+//     clearInterval(progressInterval);
+//   };
+// }, []);
+
+
   return (
     <main className="relative overflow-x-hidden">
-      {/* Fade in animation for content */}
       <div className="animate-fadeIn">
-        {/* Critical above-the-fold content */}
         <Navbar />
         <Hero />
 
-        {/* Below-the-fold content */}
         <About />
         <LogoShowCase />
         <Showcase />

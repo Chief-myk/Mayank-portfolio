@@ -1,0 +1,12 @@
+name: Schedule job
+
+on: 
+  schedule:
+    - cron : "0 0 * * *"
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Message
+        run: echo "I will automatically run at 12:00 using Cron job (command runs on format (min, hours, week,month,year)" 
+        

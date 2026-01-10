@@ -1,0 +1,12 @@
+name: Mayank Mittal
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Namaste
+        run: echo "Hello From Mayank"

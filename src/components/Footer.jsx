@@ -57,7 +57,8 @@ const Footer = () => {
           {/* Copyright Section */}
           <div className='flex flex-col justify-center'>
             <p className='text-sm text-center md:text-right text-white'>
-              © {currentYear} Mayank Mittal. All Rights Reserved.
+              {/* © {currentYear} Mayank Mittal. All Rights Reserved. */}
+              Focused on engineering problems that scale beyond demos.
             </p>
           </div>
         </div>

@@ -27,7 +27,7 @@ const Navbar = () => {
                 >
                     {/* Logo */}
                     <motion.a 
-                        href="#hero" 
+                        href="#" 
                         className="text-white font-bold text-xl md:text-2xl"
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 300 }}

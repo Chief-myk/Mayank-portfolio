@@ -1,125 +1,98 @@
 import React from 'react'
 
 const Showcase = () => {
-    const projects = [
-        {
-            id: 1,
-            title: "AutoMorph AI",
-            description: "An AI-driven system that suggests personalized car upgrades and modifications based on uploaded images. Features include AI-powered recommendations, e-commerce integration, and real-time visualization of modifications.",
-            longDescription: "AutoMorph uses computer vision and machine learning to analyze car images and suggest personalized upgrades. The system includes a full e-commerce platform for purchasing recommended products, user authentication, and a responsive dashboard for managing modifications.",
-            techStack: ["React", "Node.js", "Python", "TensorFlow", "MongoDB", "Stripe API"],
-            githubLink: "https://github.com/Chief-myk/AutoMorph",
-            liveLink: "https://automorph.demo.com",
-            image: "/images/projects/a.png",
-            tags: ["AI", "Computer Vision", "E-Commerce", "Full Stack"],
-            accentColor: "orange",
-            featured: true,
-        },
-        {
-            id: 2,
-            title: "FitGame – Play, Train, Repeat",
-            description: "A gamified fitness platform using motion tracking to turn real-world physical activity into interactive gameplay, motivating users to stay active.",
-            longDescription: "FitGame combines fitness with gaming using advanced motion tracking technology. Users complete real exercises that translate into in-game progress, with multiplayer capabilities, achievement systems, and personalized workout plans.",
-            techStack: ["React Native", "Firebase", "TensorFlow.js", "Node.js", "WebRTC"],
-            githubLink: "https://github.com/Chief-myk/Fit_Games",
-            liveLink: "https://fit-games.onrender.com/",
-            image: "/images/projects/fit-game.png",
-            tags: ["Fitness", "Motion Tracking", "Gaming", "Mobile App"],
-            accentColor: "purple",
-            featured: false,
-        },
-        {
-            id: 3,
-            title: "JARVIS AI System",
-            description: "A Python-based AI assistant combining voice and gesture controls for system automation, media management, translation, and interactive user experience.",
-            longDescription: "JARVIS is a comprehensive AI assistant that handles system automation, media control, real-time translation, smart notifications, and gesture-based interactions. It integrates with multiple APIs and services for a seamless smart environment experience.",
-            techStack: ["Python", "OpenCV", "SpeechRecognition", "FastAPI", "React"],
-            githubLink: "https://github.com/Chief-myk/Jarvis-Ai-Voice-Gesture-Control",
-            liveLink: "https://jarvis-ai-voice-gesture-control.vercel.app/",
-            image: "/images/projects/jarvis.jpg",
-            tags: ["AI", "Voice Control", "Automation", "Python"],
-            accentColor: "blue",
-            featured: true,
-        },
-        {
-            id: 4,
-            title: "KrishiMitra AI",
-            description: "An AI-powered platform that provides farmers with real-time crop suggestions, weather alerts, and soil analysis for efficient agricultural management.",
-            longDescription: "KrishiMitra leverages machine learning and satellite data to provide farmers with actionable insights. Features include crop recommendation engine, disease detection, weather forecasting, market price analysis, and multilingual support for rural farmers.",
-            techStack: ["React", "Django", "PostgreSQL", "Scikit-learn", "OpenWeather API"],
-            githubLink: "https://github.com/Chief-myk/krishiMitra-AI",
-            liveLink: "https://krishi-mitra-ai-mu.vercel.app/",
-            image: "/images//projects/k.png",
-            tags: ["AI", "Agriculture", "Data Science", "Social Impact"],
-            accentColor: "green",
-            featured: false
-        },
-        {
-            id: 5,
-            title: "E-Commerce Platform",
-            description: "A full-stack MERN application featuring dynamic product management, secure user authentication, shopping cart, and payment gateway integration.",
-            longDescription: "A complete e-commerce solution with admin dashboard, inventory management, user roles, review system, wishlist functionality, and secure payment processing. Includes advanced features like product recommendations and order tracking.",
-            techStack: ["MongoDB", "Express.js", "React", "Node.js", "JWT", "Stripe"],
-            githubLink: "https://github.com/Chief-myk/Ecommerce",
-            liveLink: "https://ecommerce-ailk.onrender.com/",
-            image: "/images/projects/e.png",
-            tags: ["MERN Stack", "E-Commerce", "Full Stack"],
-            accentColor: "green",
-            featured: false
-        },
-        {
-            id: 6,
-            title: "Movie Watching App",
-            description: "A React Native app for streaming and discovering movies with interactive UI, recommendations, and personalized watchlists.",
-            longDescription: "Feature-rich movie streaming application with personalized recommendations, social features, offline viewing, and cross-platform compatibility. Includes advanced search, rating system, and curated collections.",
-            techStack: ["React Native", "Firebase", "TMDB API", "Redux", "Expo"],
-            githubLink: "https://github.com/yourusername/movie-app",
-            liveLink: "https://movies.demo.com",
-            image: "/images/projects/m.jpeg",
-            tags: ["React Native", "Streaming", "Mobile App"],
-            accentColor: "red",
-            featured: false
-        },
-        {
-            id: 7,
-            title: "URL Shortener",
-            description: "A lightweight web app that shortens long URLs, tracks analytics, and provides QR code generation for easy sharing.",
-            longDescription: "Advanced URL shortening service with detailed analytics dashboard, custom slugs, QR code generation, link expiration, and bulk URL shortening. Features real-time click tracking and geographic analytics.",
-            techStack: ["Next.js", "PostgreSQL", "Redis", "Chart.js", "QR Code"],
-            githubLink: "https://github.com/Chief-myk/Url-Weaver",
-            liveLink: "https://url-weaver-1.onrender.com/",
-            image: "/images/projects/u.png",
-            tags: ["Next.js", "Analytics", "Utility"],
-            accentColor: "purple",
-            featured: false
-        },
-        // {
-        //     id: 8,
-        //     title: "Weather App",
-        //     description: "An interactive web and mobile app providing real-time weather updates, forecasts, and alerts based on user location.",
-        //     longDescription: "Comprehensive weather application with 7-day forecasts, severe weather alerts, historical data, and interactive maps. Supports multiple locations, weather comparisons, and detailed meteorological data visualization.",
-        //     techStack: ["React", "OpenWeather API", "Chart.js", "PWA", "Geolocation API"],
-        //     githubLink: "https://github.com/yourusername/weather-app",
-        //     liveLink: "https://weather.demo.com",
-        //     image: "/images/projects/w.png",
-        //     tags: ["React", "API Integration", "PWA"],
-        //     accentColor: "skyblue",
-        //     featured: false
-        // },
-        // {
-        //     id: 9,
-        //     title: "Blogging Platform",
-        //     description: "A modern blogging platform with user authentication, post creation, commenting, and responsive design for seamless reading and writing.",
-        //     longDescription: "Full-featured blogging platform with rich text editor, syntax highlighting, social sharing, comment system, user profiles, and admin dashboard. Includes SEO optimization, dark mode, and progressive web app capabilities.",
-        //     techStack: ["Next.js", "Sanity CMS", "Tailwind CSS", "NextAuth", "Vercel"],
-        //     githubLink: "https://github.com/Chief-myk/Blogify",
-        //     liveLink: "https://blogify-ukqr.onrender.com/",
-        //     image: "/images/projects/b.png",
-        //     tags: ["Next.js", "CMS", "Full Stack"],
-        //     accentColor: "pink",
-        //     featured: false
-        // }
-    ];
+  const projects = [
+    {
+      id: 1,
+      title: "AutoMorph AI",
+      description:
+        "AI-driven system that analyzes car images and recommends personalized upgrades, integrating computer vision, ML inference, and a commerce pipeline.",
+      longDescription:
+        "AutoMorph uses computer vision and machine learning pipelines to analyze uploaded car images and generate personalized upgrade recommendations. The system includes secure authentication, product recommendation logic, payment integration, and a scalable backend designed for real-world usage.",
+      techStack: ["React", "Node.js", "Python", "TensorFlow", "MongoDB", "Stripe API"],
+      githubLink: "https://github.com/Chief-myk/AutoMorph",
+      liveLink: "https://automorph.demo.com",
+      image: "/images/projects/a.png",
+      tags: ["AI", "Computer Vision", "System Design", "Full Stack"],
+      accentColor: "orange",
+      featured: false,
+    },
+    {
+      id: 2,
+      title: "Multimodal AI Automation System",
+      description:
+        "A production-oriented automation system combining voice, gesture, and AI-based inputs to control system operations and services.",
+      longDescription:
+        "A modular multimodal automation platform integrating gesture recognition, speech processing, and system-level automation. Designed with event-driven components, API-based services, and extensible modules for real-time interaction and system control.",
+      techStack: ["Python", "OpenCV", "SpeechRecognition", "FastAPI", "React"],
+      githubLink: "https://github.com/Chief-myk/Jarvis-Ai-Voice-Gesture-Control",
+      liveLink: "https://jarvis-ai-voice-gesture-control.vercel.app/",
+      image: "/images/projects/jarvis.jpg",
+      tags: ["AI", "Automation", "System Design", "Multimodal"],
+      accentColor: "blue",
+      featured: true,
+    },
+    {
+      id: 3,
+      title: "CiviShield",
+      description:
+        "A civic-tech platform for reporting, tracking, and analyzing public safety incidents with role-based access and real-time updates.",
+      longDescription:
+        "CiviShield is a scalable civic safety platform that allows citizens to report incidents while enabling authorities to manage, verify, and respond through dashboards. Includes role-based access control, geolocation-based reporting, and backend services designed for reliability and scale.",
+      techStack: ["React", "Node.js", "PostgreSQL", "Map APIs", "JWT"],
+      githubLink: "https://github.com/Chief-myk/CiviShield",
+      liveLink: "https://civishield.demo.com",
+      image: "/images/projects/ab.png",
+      tags: ["Civic Tech", "Backend Systems", "Scalability", "Social Impact"],
+      accentColor: "green",
+      featured: true,
+    },
+    {
+      id: 4,
+      title: "FitGame",
+      description:
+        "A gamified fitness platform that converts real-world physical movement into in-game actions using motion tracking.",
+      longDescription:
+        "FitGame bridges fitness and gaming by mapping real-world exercises to gameplay mechanics. The system includes motion tracking, real-time feedback, user progression logic, and a backend designed for multiplayer and analytics support.",
+      techStack: ["React Native", "Firebase", "TensorFlow.js", "Node.js"],
+      githubLink: "https://github.com/Chief-myk/Fit_Games",
+      liveLink: "https://fit-games.onrender.com/",
+      image: "/images/projects/fit-game.png",
+      tags: ["Fitness Tech", "Motion Tracking", "Mobile Systems"],
+      accentColor: "purple",
+      featured: false,
+    },
+    {
+      id: 5,
+      title: "KrishiMitra AI",
+      description:
+        "An AI-assisted agriculture platform providing crop insights, weather intelligence, and decision support for farmers.",
+      longDescription:
+        "KrishiMitra leverages ML models and external data sources to assist farmers with crop recommendations, disease detection, and weather forecasting. Designed with multilingual support and backend services optimized for rural accessibility.",
+      techStack: ["React", "Django", "PostgreSQL", "Scikit-learn"],
+      githubLink: "https://github.com/Chief-myk/krishiMitra-AI",
+      liveLink: "https://krishi-mitra-ai-mu.vercel.app/",
+      image: "/images/projects/k.png",
+      tags: ["AI", "Agriculture Tech", "Data Systems"],
+      accentColor: "green",
+      featured: false,
+    },
+    // {
+    //   id: 6,
+    //   title: "URL Weaver",
+    //   description:
+    //     "A backend-focused URL shortening service with analytics, caching, and performance optimization.",
+    //   longDescription:
+    //     "A URL shortening system designed with database indexing, Redis-based caching, analytics tracking, and API-driven architecture. Focused on backend performance and data consistency.",
+    //   techStack: ["Next.js", "PostgreSQL", "Redis"],
+    //   githubLink: "https://github.com/Chief-myk/Url-Weaver",
+    //   liveLink: "https://url-weaver-1.onrender.com/",
+    //   image: "/images/projects/u.png",
+    //   tags: ["Backend", "Caching", "System Design"],
+    //   accentColor: "purple",
+    //   featured: false,
+    // },
+  ];
 
     const featuredProjects = projects.filter(project => project.featured);
     const regularProjects = projects.filter(project => !project.featured);

@@ -5,9 +5,6 @@ import { Button } from "../assets/Button";
 import { words } from "../assets/index";
 import { useGSAP } from '@gsap/react';
 import { AnimatedCounter } from "../assets/AnimatedCounter";
-
-import Heroexperience from '../Models/HeroModel/Heroexperience';
-import Galaxy from '../components/Galaxy';
 import ProfileCard from '../components/ProfileCard';
 import FuturisticHero from '../components/Bg';
 
@@ -15,31 +12,11 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Hero = () => {
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
-    const [galaxyReady, setGalaxyReady] = useState(false);
     const wordContainersRef = useRef([]);
     const textRef = useRef(null);
     const intervalRef = useRef(null);
     const hasAnimated = useRef(false);
     const timelineRef = useRef(null);
-
-    // Memoize galaxy config - FIXED: White stars and proper mouse interaction
-    const galaxyConfig = useMemo(() => ({
-        mouseRepulsion: true,
-        mouseInteraction: true,
-        density: 1.5,
-        glowIntensity: 0.5,
-        saturation: 0, // Set to 0 for white stars
-        hueShift: 0,   // Set to 0 for white stars
-        transparent: true,
-        speed: 1.0,
-        twinkleIntensity: 0.3,
-        rotationSpeed: 0.05
-    }), []);
-
-    // Galaxy ready immediately
-    useEffect(() => {
-        setGalaxyReady(true);
-    }, []);
 
     // Text animation - runs once
     useEffect(() => {
@@ -78,13 +55,10 @@ const Hero = () => {
     // Title animations
     useGSAP(() => {
         timelineRef.current = gsap.timeline();
-
         timelineRef.current.fromTo("#hero h1",
             { y: 30, opacity: 0 },
             { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.out" }
         );
-
-        return () => timelineRef.current?.kill();
     }, []);
 
     // Word rotation animation
@@ -93,11 +67,12 @@ const Hero = () => {
 
         const wordContainers = wordContainersRef.current;
 
+        // Initialize containers array
         if (wordContainers.length !== words.length) {
             wordContainersRef.current = Array(words.length).fill(null);
-            return;
         }
 
+        // Set initial positions
         wordContainers.forEach((container, idx) => {
             if (container) {
                 gsap.set(container, {
@@ -107,8 +82,10 @@ const Hero = () => {
             }
         });
 
+        // Clear existing interval
         if (intervalRef.current) clearInterval(intervalRef.current);
 
+        // Create new interval
         intervalRef.current = setInterval(() => {
             const currentContainer = wordContainers[currentWordIndex];
             const nextIndex = (currentWordIndex + 1) % words.length;
@@ -133,12 +110,13 @@ const Hero = () => {
             setCurrentWordIndex(nextIndex);
         }, 2500);
 
+        // Cleanup
         return () => {
             if (intervalRef.current) clearInterval(intervalRef.current);
         };
-    }, [currentWordIndex, words]);
+    }, [currentWordIndex]);
 
-    // Cleanup
+    // Global cleanup
     useEffect(() => {
         return () => {
             if (intervalRef.current) clearInterval(intervalRef.current);
@@ -151,7 +129,6 @@ const Hero = () => {
     }, []);
 
     return (
-        // <section id="hero" className="relative min-h-screen overflow-hidden bg-black">
         <section id="hero" className="relative min-h-screen overflow-hidden bg-gradient-to-b from-black via-[#050505] to-[#0a0a0a] text-white">
 
             {/* Mobile background */}
@@ -164,43 +141,36 @@ const Hero = () => {
                 />
             </div>
 
-            <div className={`fixed top-0 left-0 w-full h-full hidden md:block`} style={{ zIndex: 0 }}>
+            {/* Desktop background */}
+            <div className="fixed top-0 left-0 w-full h-full hidden md:block" style={{ zIndex: 0 }}>
                 <FuturisticHero />
             </div>
-
-            {/* Galaxy Background - Desktop only - FIXED: Always render but conditionally display */}
-
-            {/* <div className={`fixed top-0 left-0 w-full h-full hidden md:block`} style={{ zIndex: 0 }}>
-                <Galaxy {...galaxyConfig} />
-            </div> */}
 
             {/* Content */}
             <div className="relative z-10 mx-auto px-4 md:px-6 lg:px-8 flex justify-center items-center min-h-screen">
                 <div className="flex flex-col mt-5 md:-mt-20 lg:flex-row items-center justify-between w-full max-w-7xl gap-8 lg:gap-12">
-
                     {/* Left Content */}
                     <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
                         <div className="w-full text-center lg:text-left space-y-3 lg:space-y-1">
-
-                            {/* Animated Title */}
-                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 lg:gap-3">
+                            {/* Animated Title - FIXED ALIGNMENT */}
+                            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 lg:gap-3">
                                 <h1 className="text-4xl sm:text-5xl font-bold text-white drop-shadow-2xl">
                                     Shaping
                                 </h1>
-                                <div className="relative h-12 sm:h-16 lg:h-20 min-w-[220px] sm:min-w-[280px] overflow-hidden">
+                                <div className="relative h-16 sm:h-16 lg:h-20 w-full max-w-[300px] sm:max-w-[400px]">
                                     {words.map((word, index) => (
                                         <div
                                             key={index}
                                             ref={el => wordContainersRef.current[index] = el}
-                                            className="absolute top-0 left-0 flex items-center gap-2 sm:gap-3"
+                                            className="absolute top-5 left-0 w-full flex items-center justify-center sm:justify-start gap-2 sm:gap-3"
                                         >
                                             <img
                                                 src={word.imgPath}
                                                 alt={word.text}
-                                                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full bg-white/90 p-1.5 object-cover shadow-xl"
+                                                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 p-1.5 object-cover shadow-xl flex-shrink-0"
                                                 loading="lazy"
                                             />
-                                            <span className="text-3xl sm:text-4xl lg:text-5xl text-white font-bold whitespace-nowrap drop-shadow-2xl">
+                                            <span className="text-3xl sm:text-4xl text-white font-bold drop-shadow-2xl text-center sm:text-left whitespace-nowrap">
                                                 {word.text}
                                             </span>
                                         </div>
@@ -212,16 +182,17 @@ const Hero = () => {
                                 into Real Projects
                             </h1>
 
-                            <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight drop-shadow-2xl">
+                            <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight drop-shadow-2xl mt-1">
                                 that Deliver Results
                             </h1>
 
-                            {/* Description */}
+                            {/* Description - ADDED MAX WIDTH AND TEXT WRAP */}
                             <p
                                 ref={textRef}
-                                className="text-white/95 text-center lg:text-left text-lg sm:text-xl mt-6 max-w-2xl leading-relaxed mx-auto lg:mx-0 drop-shadow-lg"
+                                className="text-white/95 text-center lg:text-left text-lg sm:text-xl mt-6 max-w-2xl leading-relaxed mx-auto lg:mx-0 drop-shadow-lg break-words"
+                                style={{ wordBreak: 'break-word' }}
                             >
-                                Hi, I'm Mayank — a Full Stack Web & App Developer, Software Engineer, and aspiring DevOps Expert from India, driven to build intelligent, high-performance, and impactful digital products that blend innovation with real-world problem-solving.
+                                Full-Stack Engineer building scalable web and mobile applications using React, Node.js, Java, and cloud-native tools, with a strong focus on system design, performance, and cloud infrastructure.
                             </p>
 
                             {/* CTA Button */}
@@ -229,20 +200,20 @@ const Hero = () => {
                                 <Button
                                     id="hero-work-button"
                                     className="button w-48 sm:w-56 h-14 text-lg font-semibold transition-transform duration-300 hover:scale-110 shadow-2xl"
-                                    text="See My Work"
+                                    text="View Projects"
                                     aria-label="View portfolio work"
                                 />
                             </div>
                         </div>
                     </div>
 
-                    {/* Right Profile Card */}
-                    <div className="w-full lg:w-1/2 h-[500px] sm:h-[600px] lg:h-[700px] flex items-center justify-center">
+                    {/* Right Profile Card - OPTIMIZED MOBILE SIZING */}
+                    <div className="w-full lg:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center">
                         <ProfileCard
                             name="Mayank"
                             title="Full-Stack Developer"
-                            handle="mayankmittal1311"
-                            status="Available"
+                            handle="Full-Stack Engineer"
+                            status="CSE @ GGSIPU"
                             contactText="Contact Me"
                             avatarUrl="/images/mayank.jpeg"
                             showUserInfo={true}

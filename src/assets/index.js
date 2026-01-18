@@ -5,56 +5,49 @@ const navLinks = [
   },
   {
     name: "Projects",
-    link: "#project",
+    link: "#projects",
+  },
+  {
+    name: "Experience",
+    link: "#experience",
   },
   {
     name: "Skills",
     link: "#skills",
   },
   {
-    name: "Testimonials",
-    link: "#testimonials",
+    name: "Achievements",
+    link: "#certificates",
   },
 ];
 
 const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "Scalable System Designs", imgPath: "/images/ideas.svg" },
+  // { text: "Complex Problem Solving", imgPath: "/images/concepts.svg" },
+  // { text: "High-Performance Systems", imgPath: "/images/designs.svg" },
+  { text: "Production-Ready Solutions", imgPath: "/images/code.svg" },
+  { text: "Distributed Architectures", imgPath: "/images/ideas.svg" },
+  // { text: "Real-World System Builds", imgPath: "/images/concepts.svg" },
 ];
 
+
 const counterItems = [
-  { value: 10, suffix: "+", label: "Innovative Projects" },
-  { value: 20, suffix: "+", label: "Skills" },
-  { value: 3, suffix: "+", label: "AI-Powered Systems" },
-  { value: 100, suffix: "%", label: "Learning Commitment" },
+  { value: 10, suffix: "+", label: "End-to-End Full-Stack Projects" },
+  { value: 6, suffix: "+", label: "Production-Grade Deployed Applications" },
+  { value: 3, suffix: "+", label: "AI-Integrated Products" },
+  { value: 1, suffix: "+", label: "System Design & Scalable Backend Exposure" },
 ];
+
 
 const logoIconsList = [
   {
-    imgPath: "/images/logos/AR-Photoroom.png",
-  },
-  {
     imgPath: "/images/logos/c-Photoroom.png",
   },
-  {
-    imgPath: "/images/logos/company-logo-2.png",
-  },
-
+  
   {
     imgPath: "/images/logos/EX-Photoroom.png",
   },
-  {
-    imgPath: "/images/logos/company-logo-8.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-9.png",
-  },
+  
   {
     imgPath: "/images/logos/GI-Photoroom.png",
   },
@@ -86,12 +79,7 @@ const logoIconsList = [
   {
     imgPath: "/images/logos/t-Photoroom.png",
   },
-  {
-    imgPath: "/images/logos/UN-Photoroom.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-11.png",
-  },
+ 
 ];
 
 
@@ -174,44 +162,34 @@ const techStackIcons = [
 const expCards = [
   {
     review:
-      "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
+      "Mayank demonstrated strong ownership across both frontend and backend systems. He consistently delivered production-ready features and showed a solid understanding of scalable web and mobile architectures.",
+    imgPath: "/images/truckhai.png",
+    logoPath: "/images/truckhai.png",
+    title: "Full Stack Developer Intern",
+    date: "June 2024 – August 2024",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Built and maintained full-stack features for TruckHai’s web and mobile applications using React, Node.js, and REST APIs.",
+      "Collaborated directly under Himanshu Sir (SDE, Zomato) to design scalable backend flows and optimize frontend performance.",
+      "Implemented authentication, role-based access, and data-driven dashboards used internally by the operations team.",
+      "Worked closely with product and design teams to ship features aligned with real business requirements.",
     ],
   },
   {
     review:
-      "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+      "Mayank approaches engineering problems with a strong problem-solving mindset. His work on backend systems and API design showed clear understanding of real-world software engineering practices.",
+    imgPath: "/images/jpmc.png",
+    logoPath: "/images/jpmc.png",
+    title: "Software Engineering Virtual Intern",
+    date: "January 2024",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
-    ],
-  },
-  {
-    review:
-      "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
-    responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Completed JPMorgan Chase’s virtual software engineering program focused on backend development and financial systems.",
+      "Designed and analyzed RESTful APIs, data pipelines, and system workflows used in enterprise-grade applications.",
+      "Worked on tasks involving code optimization, debugging, and understanding large-scale distributed systems.",
+      "Gained exposure to industry-standard engineering practices used in high-scale financial platforms.",
     ],
   },
 ];
+
 
 const expLogos = [
   {
@@ -299,12 +277,10 @@ const socialImgs = [
     ];
 
     const certificates = [
-        "Python for Machine Learning – Infosys",
         "Software Devlopment Life Cycle - Microsoft & LinkedIn",
         "App Development - SimpleLearning",
         "Full Stack Web Development (MERN Stack) – Coursera",
         "Data Structures & Algorithms in Java – Infosys",
-        "DevOps Essentials (Docker, Kubernetes, CI/CD) – Udemy"
     ];
 
 export {

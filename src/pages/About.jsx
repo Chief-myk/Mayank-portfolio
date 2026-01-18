@@ -1,26 +1,13 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { skills, certificates } from "../assets/index"
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { certificates } from "../assets/index"
 import { FaCode, FaRobot, FaBook, FaUsers } from 'react-icons/fa';
+
 const About = () => {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const element = document.getElementById('about');
-            if (element) {
-                const rect = element.getBoundingClientRect();
-                setIsVisible(rect.top < window.innerHeight - 100);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Check on initial render
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
 
     const handleClick = () => {
-        // window.location.href = "https://www.linkedin.com/in/mayankmittal1311/";
         window.open("https://www.linkedin.com/in/mayankmittal1311/", "_blank");
     };
 
@@ -31,7 +18,6 @@ const About = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        console.log("Download CV clicked");
     };
 
     const containerVariants = {
@@ -39,14 +25,14 @@ const About = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.15,
                 when: "beforeChildren"
             }
         }
     };
 
     const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
+        hidden: { y: 30, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
@@ -57,13 +43,44 @@ const About = () => {
         }
     };
 
+    const floatAnimationVariants = {
+        animate: {
+            y: [0, -20, 0],
+            transition: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+            }
+        }
+    };
+
+    const floatAnimationVariantsDelay = {
+        animate: {
+            y: [0, 20, 0],
+            transition: {
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+            }
+        }
+    };
+
     return (
-        <section id="about" className="scroll-mt-20 bg-black  relative overflow-hidden">
+        <section id="about" ref={ref} className="scroll-mt-20 bg-black relative overflow-hidden">
             {/* Animated background elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
-                <div className="absolute bottom-20 right-10 w-40 h-40 bg-orange-500 rounded-full filter blur-3xl opacity-10 animate-float-delay"></div>
-                <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-500 rounded-full filter blur-3xl opacity-10 animate-float"></div>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+                <motion.div
+                    className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-10"
+                    variants={floatAnimationVariants}
+                    animate="animate"
+                />
+                <motion.div
+                    className="absolute bottom-20 right-10 w-40 h-40 bg-orange-500 rounded-full filter blur-3xl opacity-10"
+                    variants={floatAnimationVariantsDelay}
+                    animate="animate"
+                />
+                <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-500 rounded-full filter blur-3xl opacity-10 animate-float" />
             </div>
 
             <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 relative z-10">
@@ -72,20 +89,20 @@ const About = () => {
                     <motion.div
                         className="text-center mb-16"
                         initial={{ opacity: 0, y: -20 }}
-                        animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
                         transition={{ duration: 0.6 }}
                     >
                         <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-400 mb-4">
                             About <span className="text-blue-400">Me</span>
                         </h1>
-                        <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-orange-500 mx-auto rounded-full"></div>
+                        <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-orange-500 mx-auto rounded-full" />
                     </motion.div>
 
                     <motion.div
                         className="flex flex-col lg:flex-row gap-8"
                         variants={containerVariants}
                         initial="hidden"
-                        animate={isVisible ? "visible" : "hidden"}
+                        animate={isInView ? "visible" : "hidden"}
                     >
                         {/* Left Column - Profile Card */}
                         <motion.div
@@ -95,80 +112,74 @@ const About = () => {
                             {/* Profile Card */}
                             <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]">
                                 <div className="flex flex-col sm:flex-row items-center gap-6">
-                                    {/* <div className="relative group">
-                                        <motion.img
-                                            src="https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                            alt="Profile"
-                                            className="h-40 w-40 object-cover rounded-xl border-2 border-orange-400/50 shadow-md group-hover:border-orange-400 transition-all duration-300"
-                                            whileHover={{ scale: 1.05 }}
-                                        />
-                                        <div className="absolute -bottom-3 -right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
-                                            Open to Work
-                                        </div>
-                                    </div> */}
                                     <div className="text-white space-y-3">
                                         <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-300">
                                             Mayank Mittal
                                         </h2>
                                         <p className="text-gray-300 leading-relaxed">
-                                            🚀 "I’m a passionate Computer Science Engineering student at GGSIPU, fueled by innovation and a deep love for technology. I build intelligent systems and next-gen solutions — from AI-powered assistants and 3D interactive simulations to gesture-controlled devices and real-world automation models. My goal is to turn futuristic ideas into scalable, high-impact digital experiences that redefine how people interact with technology."
+                                            🚀 "Full-Stack Engineer focused on building scalable web and backend systems.
+Hands-on with React, Node.js, Java, cloud deployment, and system design fundamentals."
                                         </p>
                                         <div className="flex flex-wrap gap-2 pt-2">
                                             <span className="px-3 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full border border-blue-500/30">Full Stack Dev</span>
                                             <span className="px-3 py-1 bg-purple-900/30 text-purple-300 text-xs rounded-full border border-purple-500/30">App Developer</span>
                                             <span className="px-3 py-1 bg-orange-900/30 text-orange-300 text-xs rounded-full border border-orange-500/30">Cloud & DevOps</span>
                                             <span className="px-3 py-1 bg-green-900/30 text-green-300 text-xs rounded-full border border-green-500/30">Iot Enthusiast</span>
-                                            <span className="px-3 py-1 bg-green-900/30 text-yellow-300 text-xs rounded-full border border-yellow-500/30">AI & ML Leaner</span>
+                                            {/* <span className="px-3 py-1 bg-green-900/30 text-yellow-300 text-xs rounded-full border border-yellow-500/30">AI & ML Leaner</span> */}
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Skills */}
-                            {/* <div>
-                                        <h3 className="text-xl font-bold text-white mb-3 flex items-center">
-                                            <span className="w-1 h-6 bg-purple-500 mr-2"></span>
-                                            Skills
-                                        </h3>
-                                        <div className="space-y-3">
-                                            {skills.map((skill, index) => (
-                                                <div key={index} className="skill-item">
-                                                    <div className="flex justify-between mb-1">
-                                                        <span className="text-gray-300">{skill.name}</span>
-                                                        <span className="text-gray-400 text-sm">{skill.level}%</span>
-                                                    </div>
-                                                    <div className="w-full bg-gray-700 rounded-full h-2">
-                                                        <motion.div
-                                                            className="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full"
-                                                            initial={{ width: 0 }}
-                                                            animate={isVisible ? { width: `${skill.level}%` } : {}}
-                                                            transition={{ duration: 1, delay: index * 0.1 }}
-                                                        />
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div> */}
+                            {/* Engineering Focus Box (NEW) */}
+                            <motion.div
+                                className="bg-gradient-to-br from-blue-900/20 to-blue-900/10 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 shadow-lg"
+                                variants={itemVariants}
+                            >
+                                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                                    <span className="w-1 h-6 bg-blue-500 mr-2" />
+                                    Engineering Focus
+                                </h3>
+                                <ul className="space-y-2">
+                                    <li className="flex items-start">
+                                        <span className="text-blue-400 mr-2">🔹</span>
+                                        <span className="text-gray-300">Backend & API design</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-blue-400 mr-2">🔹</span>
+                                        <span className="text-gray-300">System design fundamentals</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-blue-400 mr-2">🔹</span>
+                                        <span className="text-gray-300">Cloud deployment & CI/CD</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-blue-400 mr-2">🔹</span>
+                                        <span className="text-gray-300">Performance & scalability</span>
+                                    </li>
+                                </ul>
+                            </motion.div>
 
                             {/* Personal Vision Card */}
-                            <motion.div
+                            {/* <motion.div
                                 className="bg-gradient-to-br from-orange-900/20 to-orange-900/10 backdrop-blur-lg rounded-2xl p-6 border border-orange-500/20 shadow-lg"
                                 variants={itemVariants}
                             >
                                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                                    <span className="w-1 h-6 bg-orange-500 mr-2"></span>
+                                    <span className="w-1 h-6 bg-orange-500 mr-2" />
                                     Personal Vision
                                 </h3>
                                 <p className="text-gray-300 leading-relaxed">
                                     💫 "My vision is to build revolutionary technology companies that redefine human potential and shape the future of innovation. I aspire to lead advancements in intelligent defense and next-generation technologies — creating high-impact solutions that strengthen global security, empower people, and inspire a safer, smarter world."
                                 </p>
-                            </motion.div>
+                            </motion.div> */}
+                            
                             <motion.div
                                 className="bg-gradient-to-br from-violet-800/20 to-violet-950 backdrop-blur-lg rounded-2xl p-6 border border-violet-500/20 shadow-lg"
                                 variants={itemVariants}
                             >
                                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                                    <span className="w-1 h-6 bg-violet-500 mr-2"></span>
+                                    <span className="w-1 h-6 bg-violet-500 mr-2" />
                                     Why Me?
                                 </h3>
                                 <p className="text-gray-300 leading-relaxed">
@@ -184,7 +195,6 @@ const About = () => {
                                     🔹 Driven, innovative, and results-focused – ready to contribute from day one.
                                 </p>
                             </motion.div>
-
                         </motion.div>
 
                         {/* Right Column - Skills & Details */}
@@ -195,10 +205,23 @@ const About = () => {
                             {/* Education & Skills Card */}
                             <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/10">
                                 <div className="space-y-10">
+                                    {/* What I'm Building Now (NEW) */}
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-3 flex items-center">
+                                            <span className="w-1 h-6 bg-green-500 mr-2" />
+                                            What I'm Building Now
+                                        </h3>
+                                        <div className="pl-4 border-l-2 border-green-500/30">
+                                            <p className="text-gray-300 italic">
+                                                Currently building production-ready full-stack systems with cloud deployment.
+                                            </p>
+                                        </div>
+                                    </div>
+
                                     {/* Education */}
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-3 flex items-center">
-                                            <span className="w-1 h-6 bg-blue-500 mr-2"></span>
+                                            <span className="w-1 h-6 bg-blue-500 mr-2" />
                                             Education
                                         </h3>
                                         <div className="pl-4 border-l-2 border-blue-500/30">
@@ -209,9 +232,9 @@ const About = () => {
                                     </div>
 
                                     {/* Hobbies */}
-                                    <div>
+                                    {/* <div>
                                         <h3 className="text-xl font-bold text-white mb-3 flex items-center">
-                                            <span className="w-1 h-6 bg-purple-500 mr-2"></span>
+                                            <span className="w-1 h-6 bg-purple-500 mr-2" />
                                             Hobbies & Interests
                                         </h3>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -244,12 +267,12 @@ const About = () => {
                                                 <span className="text-gray-300 text-sm">Tech blogging and mentoring young developers</span>
                                             </motion.div>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     {/* Certificates */}
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-3 flex items-center">
-                                            <span className="w-1 h-6 bg-green-500 mr-2"></span>
+                                            <span className="w-1 h-6 bg-green-500 mr-2" />
                                             Certificates
                                         </h3>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -260,7 +283,7 @@ const About = () => {
                                                     whileHover={{ x: 5 }}
                                                 >
                                                     <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                                     </svg>
                                                     <span className="text-gray-300 text-sm">{cert}</span>
                                                 </motion.div>
@@ -271,7 +294,7 @@ const About = () => {
                                     {/* Achievements */}
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-3 flex items-center">
-                                            <span className="w-1 h-6 bg-yellow-500 mr-2"></span>
+                                            <span className="w-1 h-6 bg-yellow-500 mr-2" />
                                             Achievements & Awards
                                         </h3>
                                         <ul className="space-y-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -283,23 +306,17 @@ const About = () => {
                                                 <span className="text-yellow-500 mr-2">🏆</span>
                                                 <span className="text-gray-300">💻 Open-Source Contributor</span>
                                             </li>
+                                            {/* <li className="flex items-start">
+                                                <span className="text-yellow-500 mr-2">🏆</span>
+                                                <span className="text-gray-300">🌍 Recognized Innovator</span>
+                                            </li> */}
                                             <li className="flex items-start">
                                                 <span className="text-yellow-500 mr-2">🏆</span>
-                                                <span className="text-gray-300">
-
-                                                    🌍 Recognized Innovator</span>
+                                                <span className="text-gray-300">🥇 Top 5 Scholar (All-Time Academic Excellence)</span>
                                             </li>
                                             <li className="flex items-start">
                                                 <span className="text-yellow-500 mr-2">🏆</span>
-                                                <span className="text-gray-300">
-
-                                                    🥇 Top 5 Scholar (All-Time Academic Excellence)</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <span className="text-yellow-500 mr-2">🏆</span>
-                                                <span className="text-gray-300">
-
-                                                    🧠 Developed 10+ Real-World Tech Projects</span>
+                                                <span className="text-gray-300">🧠 Developed 10+ Real-World Tech Projects</span>
                                             </li>
                                         </ul>
                                     </div>

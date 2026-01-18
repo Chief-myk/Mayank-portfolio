@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/all'
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger)
 
-const Exp = () => {
+const Experience = () => {
     const cardRefs = useRef([])
     const timelineRef = useRef(null)
     const leftCardRefs = useRef([])
@@ -444,7 +444,7 @@ const Exp = () => {
                                             onMouseLeave={createTiltResetHandler(cardRefs, index)}
                                         >
                                             {/* Enhanced glow effect */}
-                                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-900/20 via-indigo-900/10 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                            {/* <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-900/20 via-indigo-900/10 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" /> */}
 
                                             {/* Card content */}
                                             <div className='relative bg-gray-800/50 md:w-[150%] md:ml-[30%] backdrop-blur-sm border border-gray-700 rounded-xl p-5 lg:p-6 xl:p-8 transition-all duration-300 group-hover:border-blue-400 group-hover:shadow-lg group-hover:shadow-blue-900/20'>
@@ -454,7 +454,7 @@ const Exp = () => {
                                                         <img
                                                             src={card.imgPath}
                                                             alt={card.title}
-                                                            className='w-full h-full object-contain'
+                                                            className='w-full h-full rounded-full object-contain'
                                                         />
                                                     </div>
                                                     <div className='exp-text'>
@@ -499,4 +499,4 @@ const Exp = () => {
     )
 }
 
-export default Exp
+export default Experience

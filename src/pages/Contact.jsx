@@ -86,7 +86,7 @@ const Contact = () => {
     return (
         <div id='contact' className='relative flex bg-black item-centre justify-center px-5 py-10 md:py-16 md:px-8'>
             <div className='w-full h-full mf:px-10 px-5'>
-                <Titleheader title={"Get in touch with me"} sub={"📩 Contact Information"} />
+                <Titleheader title={"Let’s Build Something Scalable"} sub={"📩 Contact Information"} />
                 <div className='mt-16 grid grid-cols-12'>
                     {/* Contact form left Side */}
                     <div className='xl:col-span-6 col-span-12'>
@@ -198,7 +198,7 @@ const Contact = () => {
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
                                             </svg>
-                                            <span>Send Message</span>
+                                            <span>Start a Conversation</span>
                                         </span>
                                     )}
                                 </motion.button>

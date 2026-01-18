@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Titleheader from "../assets/Titleheader";
 import { techStackIcons, techStackImgs } from "../assets/index";
-import { TechIcon } from "../Models/TechLogos/TechIcon";
+import { TechIcon } from "../components/TechIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
